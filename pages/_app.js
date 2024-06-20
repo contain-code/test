@@ -1,15 +1,15 @@
-import "@/styles/globals.css";
+import "../styles/globals.css";
 
-//internal import
-import { ChatAppProvider } from "@/Context/ChatAppContext";
-import { NavBar } from "@/Components/index";
-const MyApp = ({ Component, pageProps }) => (
+//INTERNAL IMPORT 
+import {ChatAppProvider} from "../Context/ChatAppContext";
+import { NavBar } from "../Components/index";
+
+const MyApp = ({ Component, pageProps}) => (
   <div>
     <ChatAppProvider>
-      <NavBar/>
+      <NavBar />
       <Component {...pageProps} />
     </ChatAppProvider>
   </div>
 )
-
-export default MyApp
+export default MyApp;

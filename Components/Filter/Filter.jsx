@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Image from "next/image";
 //INTERNAL IMPORT
 import Style from "./Filter.module.css";
-import { ChatAppContect } from "@/Context/ChatAppContext";
+import { ChatAppContect } from "../../Context/ChatAppContext";
 import images from "../../assets";
 import { Model } from "../index";
 

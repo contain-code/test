@@ -8,24 +8,23 @@ import images from "../../assets"
 import Card from "./Card/Card"
 import Chat from "./Chat/Chat"
 
-import { ChatAppContect } from '@/Context/ChatAppContext'
+import { ChatAppContect } from '../../Context/ChatAppContext'
 const Friend = () => {
 
   //const array = [1, 2, 3, 4, 5, 6];
-  const { sendMessage, account, FriendLists, readMessage, userName, loading, currentUserName, currentUserAddress, readUser, } = useContext((ChatAppcontect));
+  const { sendMessage, account, friendMsg, friendList, readMessage, userName, loading, currentUserName, currentUserAddress, readUser, } = useContext(ChatAppContect);
 
-  console.log(FriendLists);
   return (
     <div className={Style.Friend}>
       <div className={Style.Friend_box}>
         <div className={Style.Friend_box_left}>
-          {FriendLists.map((el,i) => (
+          {friendList.map((el,i) => (
             <Card 
               key={i+1} 
               el={el} 
               i={i} 
               readMessage={readMessage} 
-              sendUser={sendUser}
+              readUser={readUser}
             />
           ))}
         </div>

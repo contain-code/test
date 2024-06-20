@@ -1,9 +1,9 @@
 import NavBar from "./NavBar/NavBar";
+import Filter from "./Filter/Filter";
 import Error from "./Error/Error";
-import Friend from "./Friend/Friend";
 import Loader from "./Loader/Loader";
 import Model from "./Model/Model";
 import UserCard from "./UserCard/UserCard";
-import Filter from "./Filter/Filter";
+import Friend from "./Friend/Friend";
 
-export {NavBar, Error, Filter, Friend, Loader, Model, UserCard}
+export { NavBar, Filter, Error, Loader, Model, UserCard, Friend };

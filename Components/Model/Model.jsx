@@ -4,7 +4,7 @@ import Image from 'next/image'
 //internal import
 import Style from './Model.module.css'
 import images from "../../assets"
-import { ChatAppContect } from '@/Context/ChatAppContext'
+import { ChatAppContext } from '../../Context/ChatAppContext'
 import {Loader} from "../../Components/index"
 
 
@@ -12,7 +12,8 @@ const Model = ({openBox, title, head, info, image, functionName, smallInfo, addr
 
   const [name, setName] = useState("")
   const [accountAddress, setAccountAddress] = useState("")
-  const {loading} = useContext(ChatAppContect)
+  const {loading} = useContext(ChatAppContext)
+  
   return (
     <div className={Style.Model}>
       <div className={Style.Model_box}>
@@ -41,7 +42,7 @@ const Model = ({openBox, title, head, info, image, functionName, smallInfo, addr
                 </div>
 
                 <div className={Style.Model_box_right_name_btn}>
-                  <button onClick={() => functionName({name, accountAddress})}>
+                  <button type='submit' onClick={() => functionName({name, accountAddress})}>
                     {""}
                     <Image src={images.send} alt="send" width={30} height={30}/>
                     {""}

@@ -1,71 +1,74 @@
-import React, {useEffect, useState, useContext} from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import React, { useEffect, useContext, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
-//internal import
-import Style from './NavBar.module.css'
-import { ChatAppContect } from '@/Context/ChatAppContext'
-import {Model, Error} from '@/Components/index'
-import images from '@/assets'
+//INTERNAL IMPORT 
+import Style from './NavBar.module.css';
+import { ChatAppContect } from '../../Context/ChatAppContext';
+import { Model, Error } from '../index';
+import image from "../../assets";
 
 const NavBar = () => {
   const menuItems = [
     {
-      menu: "All Users",
-      link: "alluser"
+      menu: "AllUsers",
+      link: "alluser",
     },
     {
       menu: "CHAT",
-      link: "/"
+      link: "",
     },
     {
-      menu: "CONTACT",
-      link: "/"
+      menu: "CONTRACT",
+      link: "",
     },
     {
-      menu: "SETTING",
-      link: "/"
+      menu: "SETTINGS",
+      link: "",
     },
     {
       menu: "FAQS",
-      link: "/"
-    }, 
+      link: "",
+    },
     {
-      menu: "TERMS OF USE",
-      link: "/"
-    },  
-  ]
+      menu: "TERMS PF USE",
+      link: "",
+    }
+  ];
 
-  const [active, setActive] = useState(2)
-  const [open, setOpen] = useState(false)
-  const [openModel, setOpenModel] = useState(false)
+  //USESTATE
+  const [active, setActive] = useState(2);
+  const [open, setOpen] = useState(false);
+  const [openModel, setOpenModel] = useState(false);
 
-  const {account, userName, connectWallet, createAccount } = useContext(ChatAppContect)
-
+  const { account, userName, connectWallet } = useContext(ChatAppContect);
   return (
     <div className={Style.NavBar}>
       <div className={Style.NavBar_box}>
         <div className={Style.NavBar_box_left}>
-          <Image src={images.logo} alt='logo' width={50} height={50} />
+          <Image src={image.logo} alt="logo" width={50} height={50} />
         </div>
         <div className={Style.NavBar_box_right}>
-          {/*desktop */}
+          {/* DESKTOP */}
           <div className={Style.NavBar_box_right_menu}>
+            
             {menuItems.map((el, i) => (
-              <div 
-                onClick={() => setActive(i+1)} 
-                key={i+1} 
-                className={`${Style.NavBar_box_right_menu_items} ${active == i+1 ? Style.active_btn : ""}`}
-              >
-                <Link 
+              <div
+                onClick={() => setActive(i + 1)}
+                key={i}
+                className={`${Style.NavBar_box_right_menu_items} ${active == i + 1 ? Style.active_btn : ""
+                  }}`}>
+                <Link
                   className={Style.NavBar_box_right_menu_items_link}
                   href={el.link}
-                >{el.menu}</Link>
+                >
+                  {el.menu}
+                </Link>
               </div>
             ))}
           </div>
 
-          {/*mobile */}
+          {/* MOBILE  */}
           {open && (
             <div className={Style.mobile_menu}>
               {menuItems.map((el, i) => (
@@ -104,7 +107,7 @@ const NavBar = () => {
           </div>
 
           <div className={Style.NavBar_box_right_open} onClick={() => setOpen(true)}>
-            <Image src={images.open} alt='open' width={30} height={30}/>
+            <Image src={image.open} alt='open' width={30} height={30}/>
           </div>
         </div>
       </div>
@@ -131,4 +134,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default NavBar;
